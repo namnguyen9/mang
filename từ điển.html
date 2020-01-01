@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Từ điển</title>
+</head>
+
+<body>
+</body>
+<input id="text" type="text" placeholder="Nhập từ điển">
+<select id="ngonngu">
+    <option value="tienganh">Tiếng anh</option>
+    <option value="tiengviet">Tiếng Việt</option>
+</select>
+
+<button type="button" onclick="dich()">Dịch</button>
+<div id="result"></div>
+<script>
+    function dich() {
+        let str = document.getElementById("text").value;
+        let anh = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+        let viet = ['thứ 2','thứ 3','thứ 4','thứ 5','thứ 6','thứ 7','chủ nhật'];
+        let ngonngu = document.getElementById("ngonngu").value;
+        let a = anh.indexOf(str);
+        let b = viet.indexOf(str);
+        if (ngonngu === "tiengviet") {
+            for (let i = 0; i < anh.length; i++) {
+                if (a != -1) {
+                    document.getElementById("result").innerHTML = viet[a];
+                }
+            }
+        }else if (ngonngu === "tienganh") {
+            for(let i = 0;i<viet.length;i++) {
+                if(b != -1) {
+                    document.getElementById("result").innerHTML=anh[b];
+                }
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
